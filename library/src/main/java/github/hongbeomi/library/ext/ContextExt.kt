@@ -14,7 +14,7 @@ import androidx.annotation.StringRes
  */
 
 fun Context.showKeyboard(view: View? = null) {
-    view?.requestLayout()
+    view?.requestFocus()
     (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).toggleSoftInput(
         InputMethodManager.SHOW_FORCED,
         0
