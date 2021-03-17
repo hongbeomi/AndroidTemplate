@@ -12,7 +12,7 @@ import kotlinx.coroutines.*
 
 
 fun <T> debounce(
-    delayMillis: Long = 1000L,
+    delayMillis: Long,
     scope: CoroutineScope = MainScope(),
     action: (T) -> Unit
 ): (T) -> Unit {
@@ -28,9 +28,9 @@ fun <T> debounce(
     }
 }
 
-@BindingAdapter(value = ["onOnceClickListener"])
-fun View.setOnOnceClickListener(listener: View.OnClickListener) {
-    val clickWithDebounce: (View) -> Unit = debounce {
+@BindingAdapter(value = ["delayMillis", "onOnceClickListener"], requireAll = false)
+fun View.setOnOnceClickListener(delayMillis: Long = 1000L, listener: View.OnClickListener) {
+    val clickWithDebounce: (View) -> Unit = debounce(delayMillis) {
         listener.onClick(it)
     }
     setOnClickListener(clickWithDebounce)
