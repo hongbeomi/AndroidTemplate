@@ -1,6 +1,5 @@
 package github.hongbeomi.library.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ class TemplateDialogFragment<B: ViewDataBinding>(
 ): DialogFragment() {
 
     private var _binding: B? = null
-    protected var binding: B = _binding!!
+    protected val binding: B by lazy { _binding!! }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,14 +24,10 @@ class TemplateDialogFragment<B: ViewDataBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        return binding.root
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
         binding {
             lifecycleOwner = viewLifecycleOwner
         }
+        return binding.root
     }
 
     override fun onDestroyView() {
