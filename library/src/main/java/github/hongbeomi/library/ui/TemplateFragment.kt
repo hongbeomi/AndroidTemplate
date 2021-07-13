@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import github.hongbeomi.library.util.Event
 
-abstract class TemplateFragment<B : ViewDataBinding>(
+open class TemplateFragment<B : ViewDataBinding>(
     @LayoutRes private val layoutId: Int
 ) : Fragment(layoutId) {
 

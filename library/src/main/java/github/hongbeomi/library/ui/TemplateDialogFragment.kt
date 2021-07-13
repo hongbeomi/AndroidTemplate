@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import github.hongbeomi.library.util.Event
 
-class TemplateDialogFragment<B: ViewDataBinding>(
+open class TemplateDialogFragment<B: ViewDataBinding>(
     @LayoutRes private val layoutId: Int
 ): DialogFragment() {
 

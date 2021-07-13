@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LiveData
 import github.hongbeomi.library.util.Event
 
-abstract class TemplateActivity<B: ViewDataBinding>(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
+open class TemplateActivity<B: ViewDataBinding>(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
 
     protected val binding: B by lazy { DataBindingUtil.setContentView<B>(this, layoutId) }
 
